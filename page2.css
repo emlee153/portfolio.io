@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+/* *  페이지2  * */
+        
+        #page2{ background-image:url(./src/background1.png); background-position:center center; background-repeat:no-repeat; background-size:cover; }
+        #page2 .infoboxWrap{ width:100%; height:100%; position:absolute; left:0; top:0; }
+        #page2 .infoboxWrap .infobox{ position:relative; width:1400px; height:720px; margin:100px auto 0 auto; border:5px solid #4c6491; box-shadow:-2px 2px 5px #666; border-radius:20px;  background-color:#fff; }
+        /* 페이지 헤더 부분 */
+        #page2 .hd{ border-top:80px; width:100%; height:250px; }
+        #page2 .hd li { float:left; }
+        #page2 .hd .hdImg{ width:200px; height:200px; margin:23px; margin-left:80px; float:left; border-radius:110px; background-image:url(./src/idphoto.jpg); background-repeat:no-repeat; background-size:100%; background-position:center center; overflow:hidden; }
+        #page2 .hd .hdIcon{ width:90px; height:220px; float:right; background-image:url("./src/girl1_c.png"); background-position:center center; background-size:95% auto; background-repeat:no-repeat; margin-right:180px; margin-top:15px; }
+        
+        #page2 .hdtxt{ display:block; padding:30px; position:relative; margin:0 auto 0 50px; }
+        #page2 .hdtxt .txt{ position:relative; font-size:21px; line-height:2; text-indent:60px; margin-top:2px; }
+        #page2 h3{ font-weight:600; }
+        #page2 .hdtxt .bold:before{ display:block; position:absolute; left:0; top:0; content:" "; width:40px; height:40px; }
+        #page2 .hdtxt .bold1:before{ background-image:url(./src/name.png); background-size:40px 40px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold2:before{ background-image:url(./src/birth.png); background-size:40px 40px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold3:before{ background-image:url(./src/email.png); background-size:40px 40px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold4:before{ background-image:url(./src/favor.png); background-size:40px 40px; background-position:center center; background-repeat:no-repeat; }
+        
+        /*탭(메뉴버튼) 부분*/
+        #page2 .tabbox{ width:100%; position:relative; height:50px; }
+        #page2 .tabbox .point{ display:block; width:33.33333333%; height:20px; position:relative; }
+        #page2 .tabbox .point img{ display:block; width:20px; height:20px; margin:0 auto; }
+        #page2 .tabbox li.tab{ float:left; width:33.33333333%; text-align:center; height:50px; background-color:#4c6491; }        
+        #page2 .tabbox li.tab span{ display:block; font-family:"noto sans kr", sans-serif; color:#fff; text-align:center; width:100%; height:100%; line-height:48px; cursor:pointer; }
+        #page2 .tabbox li.tab1{ background-color:#384c73; }
+        #page2 .tabbox li.tab:hover{ background-color:#384c73; }
+        /* 콘텐츠 박스 부분 */
+        .conBox{ width:100%; height:auto; position:relative; }
+        .conBox #con1{ position:relative; display:block; }
+        .conBox #con2{ position:relative; display:none; margin:0 auto; }
+        .conBox #con3{ position:relative; display:none; }
+        .conBox #con4{ position:relative; display:none; }
+        .conBox #con2, #con3{ float:left; position:absolute; left:0; top:0; float:left; width:100%; height:550px; padding:20px 100px; }
+        
+        .conBox .content .contxt { float:left; background-color:#ededed; padding:20px; margin:20px 83px; border-radius:10px; position:relative;
+        border:3px solid #8696be; }
+        #con1 .contxt{ float:left; background-color:#ededed; padding:20px; margin:30px 83px; border-radius:10px; width:480px;}
+        #con2 .contxt{ width:500px; height:300px; float:left; margin:10px; }
+        #con3 .contxt{ width:500px; height:300px; float:left; margin:10px; }
+        .contxt .icon{ position:absolute; left:-20px; top:-20px; width:80px; height:80px; background-position:center center; background-repeat:no-repeat; background-size:cover; }
+        .contxt .icon1{ background-image:url(./src/info_icon1.png); }
+        .contxt .icon2{ background-image:url(./src/info_icon2.png); }
+        .contxt .icon3{ background-image:url(./src/info_icon3.png); }
+        .contxt .icon4{ background-image:url(./src/info_icon4.png); }
+        
+        .conBox .content .contxt .txt > b{ color:#324a5e; }
+        .conBox .content .contxt .txt { margin-left:40px; }
+        .conBox .content .contxt h2.txt{ line-height:2.4; }
+        .conBox .content .contxt p.txt{ line-height:1.6; font-size:18px; }
+        .conBox .imgbox{ float:left; width:200px; float:left; }
+        .conBox .imgbox img{ display:block; width:80%; height:auto; margin:0 auto; padding:20px; }
+        
+        /* 콘텐츠부분 탭2,탭3(같은형식이라) */
+        .contxt .iconboxwrap .iconbox{ float:left; width:600px; height:50px; display:block; clear:both; margin:15px; }
+        .contxt .iconboxwrap .iconbox li{ float:left; }
+        .contxt .iconbox li.icoimg{ display:block; width:50px; height:50px; }
+        .contxt .iconbox li.icoimg img{ display:block; width:100%; height:auto; }
+        .contxt .iconbox li.per{ float:left; width:400px; height:20px; box-sizing:border-box; border:2px solid #384c73; margin-top:12px; display:block; margin-left:20px; overflow:hidden; }
+        .contxt .iconbox li.per span{ display:block; width:100%; height:100%; /*background-color:#384c73;*/ }
+        
+        #con2 .contxt .iconbox li.per span.per1{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-70px; }
+        #con2 .contxt .iconbox li.per span.per2{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-85px; }
+        #con2 .contxt .iconbox li.per span.per3{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-115px; }
+        #con2 .contxt .iconbox li.per span.per4{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-60px; }        
+        #con2 .contxt .iconbox li.per span.per5{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-60px; }        
+        #con2 .contxt .iconbox li.per span.per6{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-85px; } 
+    
+        #con3 .contxt .iconbox li.per span.per1{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-40px; }
+        #con3 .contxt .iconbox li.per span.per2{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-50px; }
+        #con3 .contxt .iconbox li.per span.per3{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-170px; }
+        #con3 .contxt .iconbox li.per span.per4{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-100px; }        
+        #con3 .contxt .iconbox li.per span.per5{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-250px; }
+
+/*미디어 쿼리*/
+        @media screen and (max-width:767px) {
+        #page2{ background-image:url(./src/background1.png); background-position:center center; background-repeat:no-repeat; background-size:cover; }
+        #page2 .infoboxWrap{ width:100%; height:100%; position:absolute; left:0; top:0; }
+        #page2 .infoboxWrap .infobox{ position:relative; width:90%; height:94%; margin:3% auto; border:2px solid #4c6491; box-shadow:-2px 2px 5px #666; border-radius:8px;  background-color:#fff; margin-top:30px; }
+        /* 페이지 헤더 부분 */
+        #page2 .hd{  width:300px; height:150px; margin:10px auto 0 auto; }
+        #page2 .hd .hdImg{ display:block; width:120px; height:120px; margin:0 90px; border-radius:76px; background-image:url(./src/idphoto.jpg); background-repeat:no-repeat; background-size:100%; background-position:center center; overflow:hidden; }
+        #page2 .hd .hdIcon{ width:90px; height:120x; float:right; background-image:url("./src/girl1_c.png"); background-position:center center; background-size:95% auto; background-repeat:no-repeat; margin-right:180px; margin-top:15px; display:none; }
+        
+        #page2 .hdtxt{ display:block; width:100%; position:relative; margin:0 auto; padding:10px; }
+        #page2 .hdtxt .txt{ position:relative; font-size:0.85rem; line-height:1.4; text-indent:30px; margin-top:2px; }
+        #page2 h3{ font-weight:200; }
+        #page2 .hdtxt .bold:before{ display:block; position:absolute; left:0; top:0; content:" "; width:20px; height:20px; }
+        #page2 .hdtxt .bold1:before{ background-image:url(./src/name.png); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold2:before{ background-image:url(./src/birth.png); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold3:before{ background-image:url(./src/email.png); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+        #page2 .hdtxt .bold4:before{ background-image:url(./src/favor.png); background-size:20px 20px; background-position:center center; background-repeat:no-repeat; }
+        
+        /*탭(메뉴버튼) 부분*/
+        #page2 .tabbox{ width:100%; position:relative; height:30px; }
+        #page2 .tabbox .point{ display:block; width:33.33333333%; height:10px; position:relative; }
+        #page2 .tabbox .point img{ display:block; width:10px; height:10px; margin:0 auto; }
+        #page2 .tabbox li.tab{ float:left; width:33.33333333%; text-align:center; height:35px; background-color:#4c6491; }        
+        #page2 .tabbox li.tab span{ display:block; font-family:"noto sans kr", sans-serif; color:#fff; text-align:center; width:100%; height:100%; font-size:0.75rem; line-height:2.6; cursor:pointer; }
+        #page2 .tabbox li.tab1{ background-color:#384c73; }
+        #page2 .tabbox li.tab:hover{ background-color:#384c73; }
+            
+            
+        /* 콘텐츠 박스 부분 */
+        .conBox{ width:100%; height:auto; position:relative; }
+        .conBox #con1{ position:relative; display:block; }
+        .conBox #con2{ position:relative; display:none; padding:0; }
+        .conBox #con3{ position:relative; display:none; padding:0; }
+        .conBox #con4{ position:relative; display:none; }
+        /*.conBox #con2, #con3{ float:left; position:absolute; left:0; top:0; float:left; width:100%; height:550px; padding:20px 100px; }*/
+        
+        #page2 .conBox .content .contxt { background-color:#ededed; border-radius:10px; position:relative; border:3px solid #8696be; width:90%; margin:10px 3%; background-color:#ededed; padding:3px; }
+        .contxt .icon{ position:absolute; left:-15px; top:-15px; width:40px; height:40px; background-position:center center; background-repeat:no-repeat; background-size:cover; }
+        .contxt .icon1{ background-image:url(./src/info_icon1.png); }
+        .contxt .icon2{ background-image:url(./src/info_icon4.png); }
+        .contxt .icon3{ background-image:url(./src/info_icon3.png); }
+        .contxt .icon4{ background-image:url(./src/info_icon4.png); }
+        
+        #page2 .conBox .content .contxt .txt > b{ color:#324a5e; }
+        #page2 .conBox .content .contxt .txt { margin-left:28px; }
+        #con2 .contxt{ height:130px; }    
+        #con3 .contxt{ height:130px; }    
+        #page2 .conBox .content .contxt h2.txt{ font-size:0.9rem; line-height:2; }
+        #page2 .conBox .content .contxt p.txt{ font-size:0.75rem; line-height:1.6; }
+        .conBox .imgbox{ float:left; width:200px; float:left; }
+        .conBox .imgbox img{ display:block; width:80%; height:auto; margin:0 auto; padding:20px; }
+        
+        /* 콘텐츠부분 탭2,탭3(같은형식이라) */
+        .contxt .iconboxwrap .iconbox{ float:left; width:90%;; height:30px; display:block; clear:both; margin:0 auto; padding:5px; }
+        .contxt .iconboxwrap .iconbox li{ float:left; }
+        .contxt .iconbox li.icoimg{ display:block; width:30px; height:30px; margin:5px; }
+        .contxt .iconbox li.icoimg img{ display:block; width:100%; height:auto; }
+        .contxt .iconbox li.per{ float:left; width:90%; height:20px; box-sizing:border-box; border:1px solid #384c73; margin:-30px; display:block; margin-left:40px; overflow:hidden; }
+        .contxt .iconbox li.per span{ display:block; width:100%; height:100%; /*background-color:#384c73;*/ }
+        
+        #con2 .contxt .iconbox li.per span.per1{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-15%; }
+        #con2 .contxt .iconbox li.per span.per2{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-20%; }
+        #con2 .contxt .iconbox li.per span.per3{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-30%; }
+        #con2 .contxt .iconbox li.per span.per4{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-20%; }        
+        #con2 .contxt .iconbox li.per span.per5{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-30%; }        
+        #con2 .contxt .iconbox li.per span.per6{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-30%; } 
+    
+        #con3 .contxt .iconbox li.per span.per1{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-12%; }
+        #con3 .contxt .iconbox li.per span.per2{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-12%; }
+        #con3 .contxt .iconbox li.per span.per3{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-30%; }
+        #con3 .contxt .iconbox li.per span.per4{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-25%; }        
+        #con3 .contxt .iconbox li.per span.per5{ background-image:url(./src/skill_ico1.png); background-position:0px 0px; background-size:100% 110%; background-repeat:no-repeat; margin-left:-50%; }
+        /* 모바일 경우의 css */
+            
+        }
+        @media screen and (min-width:768px) and (max-width:959px) {
+            /*태블릿의 경우 css*/
+            /*.textbox{ clear:both; width:600px; height:300px; position:relative; margin:0 auto; overflow:hidden; padding-top:10px; }
+            .textbox .txt{ font-size:0.95em; }
+            .textbox .li{ padding:20px; height:220px; }*/
+            #page2 .infoboxWrap .infobox{ width:755px; height:600px;}
+        }
+        /* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+        @media screen and (min-width:960px) and (max-width:1279px){
+            /* 데스크탑 */
+            /*.textbox{ clear:both; width:750px; height:350px; position:relative; margin:0 auto; overflow:hidden; padding-top:30px; }
+            .textbox .li{ padding:20px; height:240px; }
+            .textbox .txt{ font-size:1em; }*/
+            #page2 .infoboxWrap .infobox{ width:900px; height:640px; }
+        }
+        @media screen and (min-width:1280px) and (max-width:1439px) {
+            /* HD 데스크탑 */
+            #page2 .infoboxWrap .infobox{ width:1100px; height:690px; }
+            #con2 .contxt, #con2 .contxt{ width:450px; }
+            .contxt .iconbox li.per{ width:350px; }
+            
+        }
+        @media screen and ( min-width:1440px ) and (max-width:1960px) {
+            } 

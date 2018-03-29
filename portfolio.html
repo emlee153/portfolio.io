@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DESIGNER LEE's PORTFOOLIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reset2.css">
+    <meta name="Subject" content="portfolio">
+    <meta name="Title" content="포트폴리오사이트">
+    <meta name="Description" content="portfolio">
+    <meta name="Author" content="이은미">   
+    <style>
+        
+        *{ margin:0; padding:0;  }
+        body, html{ width:100%; height:100%; position:relative; }
+        .pagebox{ width:50%; height:100%; float:left; }
+        .page{ width:200%; height:100%; position:relative; float:left; box-sizing:border-box; float:left; }
+        #wrap{ width:100%; height:100%; }
+        
+        /* 헤더 상단영역 */
+        #hd{ position:fixed; left:0; top:0; width:100%; height:100px; background-color:#3d6688; z-index:300; }
+        .menu{ width:80%; margin:0 auto; }
+        .closebtn{ position:absolute; right:0; top:0; background:#fff; width:60px; height:60px; margin:20px;}
+        
+        /* 미리보기 화면 */
+        .prevWrap{ position:fixed; left: 0; top: 0; width:100%; height:100%; z-index:110; background:rgba(0,0,0,0.3); display:none; }
+        .prev_box{ display:none; position:fixed; width:100%; height:100%; top:0; left:0; z-index:110; }
+        .prev_box .con{ position:relative; margin:0 auto; background-color:#efefef; border:15px solid #324a5e; margin-top:150px; z-index:112; }
+        .prev_box .linkboxWrap{ position:absolute; left:0; top: 0; width:100%; height:100%; z-index:110; }
+        .prev_box .con .linkbox{ position:relative; display:block; width:100%; height:100%; margin:10px auto; }
+        .prev_box .con .linkbox img{ display:block; width:90%; height:auto; margin:0 auto; }
+        
+        .exitbtn{ display:none; color:#fff; position:fixed; top:0; right:0; margin:110px 320px; font-size:36px; cursor:pointer; font-weight:100; z-index:500; color:#000; font-family:'nanum gothic',sans-serif; font-size:48px; }
+        
+        .prev_box .txtbox{ width:200px; height:auto; margin:10px; float:right; }
+        .txtbox .contitle{ line-height:1.6; }
+        .txtbox .comment{ line-height:1.6; }
+        .linkbox .link_click{ display:block; box-sizing:border-box; width:100px; height:30px; color:#efefef; background-color:#324a5e; text-align:center; line-height:2; margin:10px auto; cursor:pointer; }
+        .link_click span{ display:none; }
+        .linkbox .link_click:hover { background-color:#efefef; color:#324a5e; border:2px solid #324a5e; line-height:1.8; }
+        .linkbox .link_click:hover > span { display:inline; }
+        .arrowbox{ width:840px; height:auto; margin:0 auto; z-index:100; line-height:16; }
+        .arrowbox span{ color:#324a5e; font-size:48px; cursor:pointer; }
+        .arrowbox .left{ float:left; }
+        .arrowbox .right{ float:right; }
+        
+        /* gnb영역 */
+        .gnb_ico{ position:fixed; margin-left:-40px; left:50%; top:10px; width:80px; height:80px; z-index:350; }
+        .gnb_ico label{ position:relative; display:block; box-sizing:border-box; width:100%; height:100%; cursor:pointer; border:4px solid transparent; border-radius:43px; transition:0.3s; }
+        .gnb_ico img{ display:block; width:100%; height:auto; }
+        .gnb_ico label:hover{ background-color:#293947; }
+        
+        #gnb{ position:fixed; z-index:340; width:50%; height:100%; background-color:#ddd; right:0; top:0;  margin-right:-50%; }
+        #gnb ul{ width:100%; text-align:center; height:auto; margin:0 auto; text-align:center; margin-top:15%; }
+        #gnb a{ font-size:2.4rem; color:#000; line-height:2; }
+        #gnb li:hover{ background-color:#aaa; }
+        #gnb li:hover > a{ color:#fff; }
+        
+        /* title */
+        .title{ display:block; position:fixed; top:100px; left:0; width:50%;  }
+        .title h1{ color:#fff;  font-family:'nanum gothic', sans-serif; font-weight:100; display:block; text-align:center; }
+        .title .mob{ display:none; }
+        
+        
+        /* 탭형 레이아웃 적용 */
+        .tab_box{ width:80%; height:100%; margin:0 auto; /*box-shadow:-2px 2px 3px #333;*/ position:relative; }
+        .btn_boxwrap{ width:100%; height:42px; position:fixed; margin-top:100px; z-index:201;  }
+        .btn_box{ position:relative; width:80%; margin:0 auto; height:42px; background-color:#efefef; }
+        .btn_box label{ position:absolute; display:block; height:42px; line-height:42px; float:left; font-weight:bold; cursor:pointer; text-align:center; z-index:110; font-weight:100; width:33.33333333333%; }
+        .btn1{ left:0; top:0; color:#fff; }
+        .btn2{ left:33.3333333333333%; top:0; color:#333; }
+        .btn3{ left:66.6666666666666%; top:0; color:#333; }
+        #content_box{ width: 100%; height:100%; /*overflow-x:hidden;*/ }
+        #content_box .tab_con{ display:none; width:100%; height:100%; position:relative; }
+        #content_box .tab_con.active{ display:block; }
+        .tab_title{ text-indent:2px; line-height:45px; }
+
+        .slidebtn{ position:absolute; top:0; margin-left:0; width:33.3333333333333%; height:42px;
+                z-index:100; box-sizing:border-box; border:3px solid #324a5e; background-color:#324a5e; }
+        
+        /* 콘텐츠 영역 */
+        .list_box{ width:100%; height:100%; padding-top:200px; position:relative; }
+        .list_box .moveBox{ width:400%; height:auto; margin-left:0; }
+        .list_box .moveBox ul{ position:relative; display:block; width:25%; height:100%;/* margin-top:20px; padding:20px;*/ float:left; }
+        .list_box li{ display:block; width:80%; height:auto; margin:0 auto; }
+        .list_box li img{ display:block; width:44%; height:auto; float:left; margin-left:4%; margin-top:30px; box-shadow:-1px 1px 2px #666; }
+        .tab_con.desktop .list_box .moveBox ul li img{display:block; width:40%; height:auto; margin-left:7%; }
+        .tab_con.mobile .list_box .moveBox ul li img{ display:block; width:20%; height:auto; margin-left:4%; }
+        .tab_con.respon .list_box .moveBox ul li img{ display:block; width:15%; height:auto; margin-left:5%; }
+        .list_box .contitle{ display:block; text-align:center; margin-top:20px; line-height:2.6; }
+        .list_box .comment{ display:block; text-align:center; line-height:2.6; }
+        
+        /* 콘텐츠 안에 슬라이드 이동하는 버튼 */
+        .conbtn{ width:100%; height:100px; position:relative; }
+        .conbtn span{ position:absolute; top:200px; width:50px; height:100%; display:block; background-repeat:no-repeat; background-position:center center; border:3px solid #3d6688; cursor:pointer; }
+        .conbtn span.left{ left:30px; background-image:url("./src/con_btn_left.png"); }
+        .conbtn span.right{ right:30px; background-image:url("./src/con_btn_right.png"); }
+        
+        /* 스크롤시 움직이는 이미지 */
+        #move_img{ position:absolute; width:70px; height:180px; background-image:url("./src/girl2_c.png"); background-repeat:no-repeat; background-size:100% auto; background-position:center center; left:100px; bottom:-100px; }
+        #move_img2{ position:absolute; width:80px; height:180px; background-image:url("./src/umbrella1.gif"); background-repeat:no-repeat; background-size:100% auto; background-position:center center; right:100px; bottom:-100px; }
+        
+        /* top버튼 (탑버튼)*/
+        #topbox{ position:fixed; width:50px; height:50px; bottom: 0; right: 0; margin:0px 200px 50px 0px; border-radius:30px; border:3px solid #3d6688; text-align:center;   background:#fff; }
+        #topbox a{ display:block; width:100%; height:100%; color:#3d6688; text-align:center; line-height:65px; font-size:36px; font-weight:100; cursor:pointer; }
+        
+        /*슬라이드 가려주는 좌우 기둥*/
+        #rightcol{ position:absolute; right:-12.5%; top:100px; width:12.5%; height:500%; z-index:250; background-color:#ddd; }
+        #leftcol{ position:absolute; left:-12.5%; top:100px; width:12.5%; height:500%; z-index:250; background-color:#ddd; }
+        /*미디어 쿼리*/
+        @media screen and (max-width:767px) {
+            #box1 li{ float:left; width:180px; margin:0 5px 20px 5px; height:150px; }
+            #box2 li{ float:left; width:180px; margin:0 5px 20px 5px; height:270px; }
+            body,html{ overflow:scroll }
+        }
+        @media screen and (min-width:768px) and (max-width:959px) {
+            /*태블릿의 경우 css*/
+            #box1 li{ float:left; width:200px; margin:0 0 20px 20px; height:200px; }
+            #box2 li{ float:left; width:200px; margin:0 0 20px 20px; height:300px; }
+            body,html{ overflow:scroll }
+        }
+        /* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+        @media screen and (min-width:960px) and (max-width:1279px){
+            /* 데스크탑 */
+            #box1 li{ width: 180px; margin: 0 0 20px 20px;
+                    height: 120px; }
+            #box2 li{ width: 180px; margin: 0 0 20px 20px;
+                    height:270px; }
+        }
+        @media screen and (min-width:1280px) and (max-width:1439px) {
+            /* HD 데스크탑 */
+            #box1 li{ width: 180px; margin: 0 0 20px 20px;
+                    height: 120px; }
+            #box2 li{ width: 180px; margin: 0 0 20px 20px;
+                    height:270px; }
+                
+        }
+        @media screen and ( min-width:1440px ) and (max-width:1960px) {
+            }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script src="./js/jquery.js" type="text/javascript"></script>
+    <script src="./js/jquery.rotator.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        <!--//주소창 자동 닫힘
+    window.addEventListener("Load", function(){
+                            setTimeout(loaded, 100);
+                            }, false);
+        function loaded(){
+            window.scrollTo(0, 1);
+        }
+        //-->
+ 
+        /* 마우스 스크롤 */
+        var win_h = $(".list_box").height();
+        $(".list_box").each(function(index){ //data-index랑 상관없는 값.
+            $(this).attr("data-index", win_h * index); //setter
+        });
+        $(".list_box").on("mousewheel", function(e){
+            var secPos = parseInt($(this).attr("data-index")); //getter
+            
+            if(e.originalEvent.wheelDelta >= 0) {//wheelData는 아래로 내릴때 값이 -값이므로 적어주는 것. 
+                
+                //위로 스크롤링
+                $("body, html").stop().animate({ scrollTop : secPos - win_h}, 500) //현재 있는 페이지 위치값에서 이동할 값을 부여해야 하므로 이런 계산이 나오는 것.-아래로 내리는 건 마이너스 값으로 이동이니까 빼기
+            } else {
+                //아래로 스크롤링
+                $("body, html").stop().animate({ scrollTop : secPos + win_h}, 500)
+                // 나머지 경우는 위로 올리는 경우이니까 플러스 값으로 이동이므로 현재 페이지 위치값에서 움직일값만큼 더하기
+            };
+        });
+        
+    $(document).ready(function(){
+        var pageH = $(window).height();
+        $(".gnb_ico label img").click(function(){
+            var src = $(this).attr('src');
+            if ( src == './src/umb_ico1.png' ){
+                $(this).not(":animated").attr('src','./src/umb_ico2.png');
+                $("#gnb").animate({"margin-right":"0%"}, 800);
+                $("gnb_ico label").css("background-color" , "#293947");
+            } else {
+                $(this).not(":animated").attr('src','./src/umb_ico1.png');
+                $("#gnb").animate({"margin-right":"-50%"}, 800);
+                $("gnb_ico label").css("background-color" , "#324a5e");
+            }
+        });
+    });
+        
+$(function(){
+/* 탭 콘텐츠 */
+    $(".btn_box label").click(function(){
+        /* 탭버튼 폭 만큼 움직임 */
+        var btnWd = $(".btn_box label").width();
+        var btn_ac = parseInt($(this).attr("tab-item"));
+        $(this).css("color" , "#fff");
+        $(this).siblings('label').css('color' , '#333');
+        $(".btn_box label").removeClass("active");
+        $(this).addClass("active");
+        $("#content_box .tab_con").removeClass("active");
+        $("#content_box .tab_con").eq(btn_ac).addClass("active");
+        $(".slidebtn").animate({"left" : btn_ac*btnWd}, 600);
+   });
+    
+    $(".mobile .list_box li img").click(function(){
+        var imgSrc = $(this).attr("src");
+        
+    });
+    
+    $(".desktop .list_box li img").click(function(){
+        var imgSrc = $(this).attr("src");
+        var htmlCon = $(this).children('.txtbox').clone();
+        var imgLink = $(this).attr("name");
+        var imgWidth = parseInt($(this).width());
+        var imgHeight = parseInt($(this).height());
+        var className = $(this).parent(".list_box").parent(".tab_con").attr("class");
+        $(".prev_box .con").css( "width" , imgWidth*2).css("height" , imgHeight*2);
+        $("label.exitbtn").fadeIn(200);
+        $(".prevWrap").fadeIn(300);
+        $(".prev_box .link_click").attr('href',imgLink);
+        $(".prev_box").fadeIn(300);
+        $(".prev_box .linkbox img").attr('src' , imgSrc);
+        $("label.exitbtn").fadeIn(200);
+    });
+    
+    $(".mobile .list_box li img").click(function(){
+        var imgSrc = $(this).attr("src");
+        var htmlCon = $(this).children('.txtbox').clone();
+        var imgLink = $(this).attr("name");
+        var imgWidth = parseInt($(this).width());
+        var imgHeight = parseInt($(this).height());
+        var className = $(this).parent(".list_box").parent(".tab_con").attr("class");
+        $(".prev_box .linkbox img").css("width", "60%" );
+        $(".prev_box .linkbox img").attr('src' , imgSrc);
+        $(".prev_box .con").css( "width" , imgWidth*2).css("height" , imgHeight*1.5);
+        $("label.exitbtn").fadeIn(200);
+        $(".prevWrap").fadeIn(300);
+        $(".prev_box .link_click").attr('href',imgLink);
+        $(".prev_box").fadeIn(300);
+        $("label.exitbtn").fadeIn(200);
+    });
+    
+    $(".respon .list_box li img").click(function(){
+        var imgSrc = $(this).attr("src");
+        var htmlCon = $(this).children('.txtbox').clone();
+        var imgLink = $(this).attr("name");
+        var imgWidth = parseInt($(this).width());
+        var imgHeight = parseInt($(this).height());
+        var className = $(this).parent(".list_box").parent(".tab_con").attr("class");
+        $(".prev_box .linkbox img").css("width", "70%" );
+        $(".prev_box .linkbox img").attr('src' , imgSrc);
+        $(".prev_box .con").css( "width" , imgWidth*2).css("height" , imgHeight*1.5);
+        $("label.exitbtn").fadeIn(200);
+        $(".prevWrap").fadeIn(300);
+        $(".prev_box .link_click").attr('href',imgLink);
+        $(".prev_box").fadeIn(300);
+        $("label.exitbtn").fadeIn(200);
+    });
+    
+    $("label.exitbtn").click(function(){
+        $(this).fadeOut(200);
+        $(".prev_box").fadeOut(500);
+        $(".prevWrap").fadeOut(300);
+    });
+    
+    /* 콘텐츠 내부 한 사이트 내용 움직이는 슬라이드 버튼*/
+    //왼쪽 버튼 클릭시
+    $(".conbtn span.left").click(function(){
+        var boxLength = parseInt($(this).parent(".conbtn").siblings("div.moveBox").children("ul").length);
+        var moveWidth = parseInt($(this).parent(".conbtn").siblings(".moveBox").children("ul").width());//클릭시 한번 움직이는양
+        var boxMarginleft = parseInt($(this).parent(".conbtn").siblings(".moveBox").css("margin-left"));//현재 박스 마진값
+        if( boxMarginleft >= -1 * moveWidth * (boxLength-1) && boxMarginleft < 0 ){
+            $(".list_box .moveBox").animate({"margin-left" : boxMarginleft + moveWidth * 1 }, 500);
+             //만약 현재 movebox의 margin-left가 3칸 이동보다 값이 크거나 같고 0보다 작을 때 뒤로 한칸 이동
+        } else {
+            $(".list_box .moveBox").stop();
+            //movebox의 margin-left의 3번 한것보다 이동량이 많거나 같으면 이전 슬라이드로 한번 이동
+        }
+    });
+    //오른쪽 버튼 클릭시
+    $(".conbtn span.right").click(function(){
+        var boxLength = parseInt($(this).parent(".conbtn").siblings(".moveBox").children("ul").length);
+        var moveWidth = parseInt($(this).parent(".conbtn").siblings(".moveBox").children("ul").width());//클릭시 한번 움직이는양
+        var boxMarginleft = parseInt($(this).parent(".conbtn").siblings(".moveBox").css("margin-left"));//현재 박스 마진값
+        if( boxMarginleft <= 0 && boxMarginleft > -1 * moveWidth * (boxLength-1) ){
+            $(".list_box .moveBox").animate({"margin-left" : boxMarginleft - moveWidth * 1 }, 500); //현재 movebox의 margin-left의 값이 0보다 작거나 같거나 3번 슬라이드 한 값보다 크면 한칸앞으로
+        } else {
+            $(".list_box .moveBox").stop();
+        };
+    });
+    //버튼 호버 효과
+    $(".conbtn > span").mouseenter(function(){
+        $(this).css('background-color' , "#fff");
+    });
+    $(".conbtn > span").mouseleave(function(){
+        $(this).css('background-color' , "transparent");
+    });
+    
+    $(".btn_box label").click(function(){
+        $(".list_box .moveBox").css("margin-left" , "0px");
+    });
+    /*top버튼*/
+    $( '#topbox' ).click(function(){
+        $('html, body').animate({ scrollTop : 0}, 400);
+        return false;
+    });
+    
+    /*탭버튼 클릭시 윗쪽으로 올라옴*/
+    $(".btn_box label").click(function(){
+        $('html, body').animate({ scrollTop : 0}, 1);
+        return false;
+    });
+    /*움직이는 이미지 move_img*/
+    $(window).scroll(function(){
+            var position = $(window).scrollTop();
+           $("#move_img").stop().css( "margin-left" , 300 + position*0.7 /*적게 움직일만큼 1보다 작은 값을 곱해주면 느려짐.*/ ); 
+           $("#move_img2").stop().css( "margin-right" , 300 + position*0.7 ); 
+    });
+    
+});
+        
+</script>
+</head>
+<body id="body">
+    <div id="wrap" class="pagebox">
+    <header id="hd">
+        <div class="gnb_ico">
+            <label><img src="./src/umb_ico1.png" alt="메뉴열기아이콘"></label>
+        </div>
+        <nav id="gnb">
+        <ul>
+            <li class="gnbli1"><a href="./index.html#page1">intro</a></li>
+            <li class="gnbli2"><a href="./index.html#page2">profile</a></li>
+            <li class="gnbli3"><a href="./index.html#page3">ability</a></li>
+            <li class="gnbli4"><a href="./index.html#page4">contact</a></li>
+        </ul>
+    </nav>
+    </header>      
+        <div class="btn_boxwrap">
+            <div class="btn_box">
+                <div class="slidebtn"></div>
+                <label class="btn1" tab-item="0" class="active tab1">데스크탑</label>
+                <label class="btn2" tab-item="1">모바일</label>
+                <label class="btn3" tab-item="2">기타</label>
+            </div>
+        </div>
+        
+        <div class="tab_box" id="page1">  
+        <div id="leftcol"></div>
+        <div id="rightcol"></div>
+            <div id="content_box">
+               <!-- 데스크탑 작업물 영역 -->
+                <div class="tab_con active desktop" tab-item="0">
+                    <!-- 데스크탑 사이트1 -->
+                    <div class="list_box box1" data-index="0">
+                        <div id="move_img"></div>
+                        <h2 class="contitle">JEMUT 쇼핑몰 사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : html5, css, photoshop</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/c1_1.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_2.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_4.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_7.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/c1_7.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_8.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_9.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_12.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/c1_13.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_14.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                    <img src="./src/c1_c.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/c1/">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>             
+                    </div>
+                    <!-- 데스크탑 사이트2 -->
+                    <div class="list_box box3" data-index="1">
+                        <h2 class="contitle">Danner Korea 웹사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : html5, css, javascript, jQuery</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/m3_1.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_2.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_3.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_8.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m3_4.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_5.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_6.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_7.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m3_9.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_10.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                    <img src="./src/m3_c.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/m3/">
+                                </li>
+                            </ul> 
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>             
+                    </div>
+                    <!-- 데스크탑 사이트3 -->
+                    <div class="list_box box2" data-index="2">
+                        <h2 class="contitle">미쟝센 단편영화제 웹사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : html5, css</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/a1_1.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_2.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_3.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_4.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                </li>
+                            </ul> 
+                            <ul>
+                                <li>
+                                    <img src="./src/a1_5.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_6.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_7.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_8.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/a1_9.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_10.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_11.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                    <img src="./src/a1_c.jpg" alt="데스크탑" name="http://emlee153.dothome.co.kr/a1/">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>             
+                    </div>
+                    <!-- 데스크탑 사이트3 -->
+                    <div class="list_box box2" data-index="3">
+                        <h2 class="contitle">시그널엔터테인먼트그룹 사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : photoshop, illustrator / html5, css, javaScript, jQuery </p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/m6_1.jpg" alt="데스크탑" name="http://bohemian.dothome.co.kr/b6/">
+                                    <img src="./src/m6_2.jpg" alt="데스크탑" name="http://bohemian.dothome.co.kr/b6/">
+                                    <img src="./src/m6_3.jpg" alt="데스크탑" name="http://bohemian.dothome.co.kr/b6/">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m6_4.jpg" alt="데스크탑" name="http://bohemian.dothome.co.kr/b6/">
+                                    <img src="./src/m6_5.jpg" alt="데스크탑" name="http://bohemian.dothome.co.kr/b6/">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>             
+                    </div>
+                </div>
+                
+                <!-- 모바일 작업물 영역 -->
+                <div class="tab_con mobile" tab-item="1">
+                    <!-- 모바일 사이트1 -->
+                    <div class="list_box box1" data-index="0">
+                        <div id="move_img2"></div>
+                        <h2 class="contitle">어반라이크 모바일 사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : html5, css , photoshop, illustrator</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/m1_1.png" alt="모바일" name="http://emlee7202.dothome.co.kr/m2">
+                                    <img src="./src/m1_2.png" alt="모바일" name="http://emlee7202.dothome.co.kr/m2">
+                                    <img src="./src/m1_3.png" alt="모바일" name="http://emlee7202.dothome.co.kr/m2">
+                                    <img src="./src/m1_4.png" alt="모바일" name="http://emlee7202.dothome.co.kr/m2">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m1_5.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m2" style="width:46%; height:auto; float:left;">
+                                    <img src="./src/m1_c.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m2" style="width:46%; height:auto; float:left;">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                    <!-- 모바일 사이트2 -->
+                    <div class="list_box box2" data-index="1">
+                        <h2 class="contitle">코레일톡 모바일 사이트 리디자인</h2>
+                        <p class="comment">사용 프로그램/언어 : photoshop, illustrator, html5, css</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/m2_1.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_2.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_3.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_4.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m2_5.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_6.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_7.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                    <img src="./src/m2_8.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1">
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <img src="./src/m2_9.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1" style="width:40%; margin-left:5%">
+                                    <img src="./src/m2_10.jpg" alt="모바일" name="http://emlee7202.dothome.co.kr/m1" style="width:40%; margin-left:5%">
+                                </li>
+                            </ul> 
+                        </div>
+                        <div class="conbtn">
+                            <span class="left" id=""></span>
+                            <span class="right" id=""></span>
+                        </div>
+                    </div>   
+                </div>
+                
+                
+                <!-- 반응형 작업물 영역 -->
+                <div class="tab_con respon" tab-item="2">
+                    <!--반응형 사이트1-->
+                    <div class="list_box" data-index="0">
+                       <h2 class="contitle">가상 사이트 디자인 - 제약회사</h2>
+                        <p class="comment">사용 프로그램/언어 : photoshop, illustrator</p>
+                        <div class="moveBox">
+                            <ul>
+                                <li>
+                                    <img src="./src/v1_1.jpg" alt="반응형">
+                                    <img src="./src/v1_2.jpg" alt="반응형">
+                                    <img src="./src/v1_3.jpg" alt="반응형">
+                                    <img src="./src/v1_4.jpg" alt="반응형">
+                                    <img src="./src/v1_5.jpg" alt="반응형">
+                                </li>                                
+                            </ul>
+                            <ul>    
+                                <li>
+                                    <img src="./src/v1_6.jpg" alt="반응형">
+                                    <img src="./src/v1_7.jpg" alt="반응형">
+                                    <img src="./src/v1_8.jpg" alt="반응형">
+                                    <img src="./src/v1_9.jpg" alt="반응형">
+                                    <img src="./src/v1_10.jpg" alt="반응형">
+                                </li>
+                            </ul>
+                            <ul>  
+                                <li>
+                                    <img src="./src/v1_11.jpg" alt="반응형">
+                                    <img src="./src/v1_12.jpg" alt="반응형">
+                                    <img src="./src/v1_13.jpg" alt="반응형">
+                                    <img src="./src/v1_14.jpg" alt="반응형">
+                                    <img src="./src/v1_15.jpg" alt="반응형">
+                                </li>
+                            </ul>
+                            <ul>    
+                                <li>
+                                    <img src="./src/v1_16.jpg" alt="반응형">
+                                    <img src="./src/v1_18.jpg" alt="반응형">
+                                    <img src="./src/v1_c.jpg" alt="반응형" style="width:40%; height:auto; margin-left:7%; box-shadow:-1px 1px 2px #666;">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="conbtn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>        
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!--이미지 클릭시 나오는 미리보기창-->
+    <div class="prevWrap"></div>
+    <div class="prev_box prev">
+        <div class="arrowbox">
+            <span class="left"> &#60; </span>
+            <span class="right"> &#62; </span>
+        </div>
+        <div class="con">
+             <div class="linkboxWrap">
+                 <li class="linkbox">
+                     <a><img src="http://placehold.it/450x300/cccccc" alt="미리보기화면"></a>
+                     <a href="#" class="link_click">바로가기 <span>→</span></a>
+                 </li> 
+             </div>                      
+        </div>
+    </div>
+    <label class="exitbtn">X</label>
+    </div>
+    <div id="topbox"><a>^</a></div>
+    
+</body>
+</html>

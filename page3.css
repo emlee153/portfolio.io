@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* 페이지3 */
+#page3{ background-color:#eaf2f0; background-image:url("./src/page3_1.png"); background-repeat:no-repeat; background-position:center center; background-size:cover; }
+#page3 .pagetitle{ width:280px; height:280px; margin:0 auto; background-image:url("./src/page3_2.png"); background-repeat:no-repeat; background-position:center center; background-size:cover; }
+#page3 .pageimg{ width:100%; height:100%; position:absolute; left:0; top:0; z-index:-10; }
+.pageimg svg.svg1{ position:relative; display:block; width:70%; height:auto; margin:0 auto; opacity:0; }
+#page3 .btn{ width:100%; margin:0 auto; position:absolute; bottom:0; }
+#page3 .btn img{ display:block; cursor:pointer; width:150px; height:auto; margin:0 auto 0 auto; }
+#pop{ position:absolute; left:0; bottom:-90%; width:100%; height:100%; background-image:url(./src/page3_3_wave.png); z-index:999; }
+#pop img{ display:block; width:250px; height:auto; margin:0 auto; }
+#pop p{ display:block; margin:0 auto; text-align:center; color:#fff; font-size:48px; }
+#pop img, #pop p{ margin-top:200px; }
+#pop2{ position:absolute; left:0; bottom:-90%; width:100%; height:100%; background-image:url(./src/page3_3_wave.png); z-index:999; }
+
+
+@media screen and (max-width:767px) {
+/* 모바일 경우의 css */
+#pop{ position:absolute; left:-120%; top:0; width:100%; height:100%; background-image:url(./src/page3_3_wave.png); z-index:999; }
+#pop img{ position:relative; display:block; width:150px; height:auto; margin:0 auto; }
+#pop p{ position:relative; display:block; margin:0 auto; text-align:center; color:#fff; font-size:48px; }
+#pop img, #pop p{ margin-top:200px; }
+}
+@media screen and (min-width:768px) and (max-width:959px) {
+/*태블릿의 경우 css*/
+}
+/* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+@media screen and (min-width:960px) and (max-width:1279px){
+/* 데스크탑 */
+}
+@media screen and (min-width:1280px) and (max-width:1439px) {
+/* HD 데스크탑 */
+
+
+}
+@media screen and ( min-width:1440px ) and (max-width:1960px) {
+} 

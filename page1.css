@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/* 페이지1 */
+        #page1{ background-image:url(src/bg1_1.jpg); background-repeat:no-repeat; background-size:cover; }
+        
+        #page1 .star{ position:absolute; width:100%; top:-45px; left:0; height:180px; z-index:900; }
+        #page1 .star a{ position:relative; display:block; width:50px; height:100%; margin:0 auto; cursor:pointer; }
+        #page1 .star span{ display:block; text-align:center; color:#fff; font-family:"jeju gothic", sans-serif; font-weight:100; }
+        #page1 .star img{ display:block; width:100%; height:auto; }
+        
+        #page1 .inbg{ width:100%; height:150px; position:absolute; bottom:0; left:0; background-image:url(./src/city2.png); background-repeat:no-repeat; background-size:100% auto; background-position:0 100%; z-index:15; }
+        #page1 .inbg2{ width:100%; height:100%; position:absolute; bottom:0; left:0; background-image:url(./src/rain_bg.png); background-repeat:no-repeat; background-size:100% 100%; background-position:center center; z-index:14; opacity:0.4; display:none; }
+
+
+       h1.title{ display:block; text-align:center; font-family:'noto sans kr',sans-serif; font-weight:400; line-height:8; }
+
+        /* main 이미지 위치설정 모음 */
+        .imgbox{ width:100%; height:100%; }
+        .imgbox img{ cursor:pointer; }
+        .lamp{ z-index:20; display:block; width:80px; height:auto; position:absolute; right:150px; bottom:0;}
+        .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:150px; bottom:0;}
+        .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:165px; bottom:640px; font-size:1.1em; cursor:pointer; }
+        .lamp:hover ~ .lightlamp{ opacity:1 }
+        .light{ display:none; width:1500px; height:auto; position:absolute; right:162px; bottom:0; z-index:15; }
+        .man { display:none; width:180px; height:auto; position:absolute; right:850px; bottom:0; cursor:pointer; z-index:999; }
+        .man2 { display:none; width:210px; height:auto; position:absolute; right:845px; bottom:-10px; cursor:pointer; z-index:990; }
+        .imgbox .w_ck{ display:block; width:30px; height:auto; position:absolute; right:175px; bottom:600px; z-index:30; }
+        
+        
+        /*메인타이틀*/
+        #titlebox{ position:relative; margin:0 auto; width:1000px; height:auto; margin-top:200px; opacity:0; }
+        #Layer_1{ display:none; width:100%; height:auto; }
+        
+        /* 메뉴 영역 */
+        .menubtn{ position:absolute; width:25%; top:10px; left:0; height:70px; z-index:500; }
+        .menubtn img{ display:block; width:50px; height:auto; position:relative; margin:0 auto; cursor:pointer; }
+        
+        #menu{  position:fixed; top:0; width:100%; height:100px; background:rgba(249, 249, 249, 0.9); display:block; z-index:999; display:none; }
+        #menu ul{  width:640px; float:right; }
+        #menu li{ float:left; width:140px; padding:5px; transition:0.5s; }
+        #menu label{ display:block; text-align:center; color:#000; font-family:'KoPub Batang', serif; font-size:1.6rem; font-weight:200; line-height:2.4; cursor:pointer; }
+        #menu span{ display:block; content:""; width:1px; height:1px; background:rgba(0,0,0,0); transition:0.5s; }
+        #menu li:hover > span{ width:100%; background:rgba(0,0,0,1); }
+        
+        #ghost_menu{ position:fixed; top:0; width:100%; height:80px; opacity:0; display:block; z-index:990; }
+                span.left { left:0; float:left; }
+                span.right { right:0; clear:both; float:right; }
+                span.left img{ margin-left:5px;  }
+                span.right img{ margin-left:10px;  }
+
+                span.arrow{ position:fixed; bottom:45%; width:70px; height:70px; cursor:pointer; background-color:#000; z-index:500; } 
+                span.arrow img{ display:block; width:90%; height:auto; margin:5%; }
+                #menu{ width: 100%; height:80px; }
+
+
+/*미디어 쿼리*/
+        @media screen and (max-width:767px) {
+        /* 모바일 경우의 css */
+            .menubtn{ display:none; }
+            .light{ display:none; position:absolute; right:87px; z-index:15; top:45px; }
+            .imgbox{ width:100%; height:100%; }
+            .imgbox img{ cursor:pointer; }
+            .lamp{ z-index:20; display:block; width:80px; height:auto; position:absolute; right:150px; bottom:0;}
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:150px; top:5px;}
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:165px; top:75px; font-size:1.1em; cursor:pointer; }
+            .lamp:hover ~ .lightlamp{ opacity:1 }
+            .lightlamp{ display:none; }
+            .man { display:none; width:180px; height:auto; position:absolute; right:90px; bottom:0; cursor:pointer; z-index:999; }
+            .man2 { display:none; width:210px; height:auto; position:absolute; right:85px; bottom:-10px; cursor:pointer; z-index:990; }
+            .imgbox .w_ck{ display:block; width:30px; height:auto; position:absolute; right:175px; z-index:30; top:100px; }
+            
+            /* 좌우 화살표 이동  */
+            
+            
+            span.arrow{ /* position:fixed; 
+                    transform: translateZ(0);
+                    -webkit-transform: translateZ(0);
+                    bottom:60%; width:50px; height:50px; cursor:pointer; background-color:#000; z-index:500; } 
+                    span.arrow img{ display:block; width:90%; height:auto; margin:5%;*/ display:none; }
+            #menu{ width: 100%; height:40px; }
+            
+            #titlebox{ position:relative; width:100%; height:auto; z-index:700; opacity:0; margin-top:120px; }
+            #titlebox svg{ display:none; width:300px; height:auto; margin:0 auto; text-align:center; margin-top:100px; }
+            #page1 .star{ display:none; }
+            #ghost_menu{ display:none; }
+            
+            #menu ul{ text-align:center; display:block; width:100%; height:100%; float:left; }
+            #menu li{ width:25%; padding:0px; margin:0; }
+            #menu li label { font-size:0.9rem; line-height:2.6; }
+        }
+        @media screen and (min-width:768px) and (max-width:959px) {
+            /*태블릿의 경우 css*/
+            .menubtn{ display:none; }
+            .page .li li{ width:40px; height:40px; margin:30px 60px 10px 60px; }
+            .man { right:370px; }
+            .man2 { right:365px; }
+            .lamp{ right:100px; height:475px; width:75px; }
+            .lightlamp{ z-index:19; opacity:0; width:75px; height:475px; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; bottom:520px; }
+            .light{ width:750px; height:460px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; bottom:480px; }
+            #menu, #ghost_menu{ display:none; }
+            .star{ display:none; }
+        }
+        /* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+        @media screen and (min-width:960px) and (max-width:1279px){
+            /* 데스크탑 */
+            .man { right:480px; }
+            .man2 { right:475px; }
+            .lamp{ right:100px; }
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; }
+            .light{ width:950px; height:578px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; }
+        }
+        @media screen and (min-width:1280px) and (max-width:1439px) {
+            /* HD 데스크탑 */
+            .man { right:620px; }
+            .man2 { right:615px; }
+            .lamp{ right:100px; }
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; }
+            .light{ width:950px; height:578px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; }
+            
+        }
+        @media screen and ( min-width:1440px ) and (max-width:1960px) {
+            } 

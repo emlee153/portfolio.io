@@ -1,0 +1,78 @@
+@charset "utf-8";
+/*미디어 쿼리*/
+        @media screen and (max-width:767px) {
+        /* 모바일 경우의 css */
+            .menubtn{ display:none; }
+            .light{ display:none; position:absolute; right:87px; z-index:15; top:45px; }
+            .imgbox{ width:100%; height:100%; }
+            .imgbox img{ cursor:pointer; }
+            .lamp{ z-index:20; display:block; width:80px; height:auto; position:absolute; right:150px; bottom:0;}
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:150px; top:5px;}
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:165px; top:75px; font-size:1.1em; cursor:pointer; }
+            .lamp:hover ~ .lightlamp{ opacity:1 }
+            .lightlamp{ display:none; }
+            .man { display:none; width:180px; height:auto; position:absolute; right:90px; bottom:0; cursor:pointer; z-index:999; }
+            .man2 { display:none; width:210px; height:auto; position:absolute; right:85px; bottom:-10px; cursor:pointer; z-index:990; }
+            .imgbox .w_ck{ display:block; width:30px; height:auto; position:absolute; right:175px; z-index:30; top:100px; }
+            
+            #titlebox{ position:relative; width:100%; height:auto; z-index:700; opacity:0; }
+            #titlebox svg{ display:none; width:300px; height:auto; margin:0 auto; text-align:center; margin-top:20px; }
+            #page1 .star{ display:none; }
+            #ghost_menu{ display:none; }
+            span.arrow{ top:45%; width:50px; height:50px; }
+            span.arrow img{ width:90%; height:auto; margin:5%; }
+            #menu{ width: 100%; height:40px; }
+            #menu ul{ text-align:center; display:block; width:100%; height:100%; }
+            #menu li{ width:25%; padding:0px; margin:0; }
+            #menu li label { font-size:0.9rem; line-height:2.6; }
+        }
+        @media screen and (min-width:768px) and (max-width:959px) {
+            /*태블릿의 경우 css*/
+            /*.textbox{ clear:both; width:600px; height:300px; position:relative; margin:0 auto; overflow:hidden; padding-top:10px; }
+            .textbox .txt{ font-size:0.95em; }
+            .textbox .li{ padding:20px; height:220px; }*/
+            #page2 .infoboxWrap .infobox{ width:755px; height:600px;}
+            .menubtn{ display:none; }
+            .page .li li{ width:40px; height:40px; margin:30px 60px 10px 60px; }
+            .man { right:370px; }
+            .man2 { right:365px; }
+            .lamp{ right:100px; height:475px; width:75px; }
+            .lightlamp{ z-index:19; opacity:0; width:75px; height:475px; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; bottom:520px; }
+            .light{ width:750px; height:460px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; bottom:480px; }
+            #menu, #ghost_menu{ display:none; }
+            .star{ display:none; }
+        }
+        /* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+        @media screen and (min-width:960px) and (max-width:1279px){
+            /* 데스크탑 */
+            /*.textbox{ clear:both; width:750px; height:350px; position:relative; margin:0 auto; overflow:hidden; padding-top:30px; }
+            .textbox .li{ padding:20px; height:240px; }
+            .textbox .txt{ font-size:1em; }*/
+            #page2 .infoboxWrap .infobox{ width:900px; height:640px; }
+            .man { right:480px; }
+            .man2 { right:475px; }
+            .lamp{ right:100px; }
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; }
+            .light{ width:950px; height:578px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; }
+        }
+        @media screen and (min-width:1280px) and (max-width:1439px) {
+            /* HD 데스크탑 */
+            #page2 .infoboxWrap .infobox{ width:1100px; height:690px; }
+            .man { right:620px; }
+            .man2 { right:615px; }
+            .lamp{ right:100px; }
+            .lightlamp{ z-index:19; opacity:0; width:80px; height:auto; position:absolute; right:100px; }
+            .imgbox .clicktxt{ color:#fff; display:block; text-align:center; height:auto; position:absolute; right:115px; }
+            .light{ width:950px; height:578px; position:absolute; right:112px; bottom:0; z-index:15; }
+            .imgbox .w_ck{ right:125px; }
+            .conBox #con1 .contxt, #con2 .contxt{ margin:20px 10px; }
+            #con2 .contxt, #con2 .contxt{ width:450px; }
+            .contxt .iconbox li.per{ width:350px; }
+            
+        }
+        @media screen and ( min-width:1440px ) and (max-width:1960px) {
+            } 

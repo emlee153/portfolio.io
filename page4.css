@@ -1,0 +1,40 @@
+        /* 페이지4 */
+    #page4{ background-image:url(./src/page4_2.jpg); background-size:100% 100%; background-position:top center; background-repeat:no-repeat; }
+    .contactbox{ position:relative; width:80%; height:80%; box-sizing:border-box; background:rgba(255,255,255,0.7);  margin:10% auto 0 auto; }
+    .contactbox .contact{ position:relative; width:60%; display:block; margin:0 auto; }
+    .contactbox li{ position:relative; float:left; width:25%; height:auto; transition:0.8s; }
+    .contactbox img{ display:block; width:80%; margin:0 10%; height:auto; transition: 0.5s; }
+    .contactbox a{ transition:0.5s; cursor:pointer; }
+    .contactbox a:hover > img{  height:auto; width:90%; margin:0 5% 4%; 5%;  }
+    #page4 .vsimg{ clear:both; width:500px; height:400px; display:block; margin:0 auto; z-index:800; }
+    #page4 .vsimg img{ display: block; width:50%; height:auto; margin:0 auto; }
+    #page4 li span{ display:none; font-family:"jeju gothic",sans-serif; font-size:16px; font-weight:200; text-align:center; position:absolute; bottom:-15px; width:100%; height:12px; }
+
+    div.vs1{ display:none; width:100%; height:300px; margin:0 auto; }
+    div.vs1 iframe{ width:100%; height:100%; margin: 0 auto; }
+
+    div.vs2{ display:none; width:100%; height:300px; margin:0 auto; }
+    div.vs2 .form{ clear:both; display:block; width:100%; height:280px; margin:70px auto 0 auto; }
+    div.vs2 .form input{ display:block; width:90%; height:20px; padding:10px; margin:20px auto 0 auto; }
+    div.vs2 .form input.submit{ height:50px; }
+
+
+
+@media screen and (max-width:767px) {
+/* 모바일 경우의 css */
+
+}
+@media screen and (min-width:768px) and (max-width:959px) {
+/*태블릿의 경우 css*/
+}
+/* 모바일 폭 최소 사이즈:(아이폰초기사이즈)320px */
+@media screen and (min-width:960px) and (max-width:1279px){
+/* 데스크탑 */
+}
+@media screen and (min-width:1280px) and (max-width:1439px) {
+/* HD 데스크탑 */
+
+
+}
+@media screen and ( min-width:1440px ) and (max-width:1960px) {
+} 
